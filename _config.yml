@@ -115,8 +115,8 @@ analytics:
 author:
   name             : "Gregory Whitmore"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Just a Guy with a Computer and a 3D Printer"
-  location         : "Somewhere"
+  bio              : "Just a Guy with a Computer and a 3D"
+  location         : "Tampa, FL"
   email            :
   links:
     - label: "Email"
