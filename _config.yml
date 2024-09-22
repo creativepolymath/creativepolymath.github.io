@@ -59,7 +59,7 @@ plugins:
 
 author:
   name   : "Gregory Whitmore"
-  avatar : "/assets/images/bio-photo.jpg"
+  avatar : "/assets/images/headshot1.jpg"
   bio    : "Just a guy with a computer and a 3d printer"
   links:
     - label: "Website"
