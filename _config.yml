@@ -28,7 +28,7 @@ layout: single
 logo: "/assets/images/88x88.png"
 title_separator: "|"
 header:
-  image: /assets/images/header.png
+  image: "/assets/images/header.png"
 
 # Build settings
 markdown: kramdown
