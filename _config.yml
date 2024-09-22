@@ -16,19 +16,16 @@
 title: Polymathic Projects
 email: gwhitmore@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Welcome to my GitHub portfolio, showcasing my journey as an entry-level data analyst passionate about weather, cycling, and gardening data. Explore my resume and diverse data science projects, featuring advanced visualizations created using R and Python. Discover how I leverage data to uncover insights and trends, and see my latest work in graphic design and 3D modeling. Dive into my articles on Medium to learn more about my data analytics journey and how I continuously expand my skills. Connect with me to collaborate on innovative data-driven projects!
 twitter_username: username
 github_username: creativepolymath
 minimal_mistakes_skin: air
 search: true
-layout: splash
+layout: single
 
 logo: "/assets/images/88x88.png"
 title_separator: "|"
-header:
-  image: "/assets/images/header.png"
+
 
 # Build settings
 markdown: kramdown
