@@ -22,8 +22,6 @@ github_username: creativepolymath
 minimal_mistakes_skin: air
 search: true
 layout: single
-header:
-  image: "/assets/images/header.png"
 
 logo: "/assets/images/88x88.png"
 title_separator: "|"
