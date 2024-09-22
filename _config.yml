@@ -23,6 +23,7 @@ twitter_username: username
 github_username: creativepolymath
 minimal_mistakes_skin: air
 search: true
+layout: single
 
 logo: "/assets/images/88x88.png"
 title_separator: "|"
@@ -34,7 +35,7 @@ remote_theme: mmistakes/minimal-mistakes
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
 paginate_path: /page:num/
-timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: US/Eastern
 
 include:
   - _pages
@@ -64,6 +65,7 @@ author:
   name   : "Gregory Whitmore"
   avatar : "/assets/images/headshot1.jpg"
   bio    : "Just a guy with a computer and a 3d printer"
+  location: "Tampa, FL"
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
@@ -116,3 +118,6 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
+
+google:
+  search_engine_id: 028c9027e173b4d9c

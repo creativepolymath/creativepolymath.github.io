@@ -22,6 +22,12 @@ print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 ```
 
+```r
+file_path <- "./output_CSV/amd_stock_data_clean.csv"  # Define the file name and path
+write.csv(amd_data_clean, file = file_path, row.names = FALSE)  # Write the data frame to a CSV file
+print(paste("Cleaned data has been exported to", file_path))  # Print confirmation message
+```
+
 Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
 
 [jekyll-docs]: https://jekyllrb.com/docs/home
