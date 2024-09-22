@@ -3,6 +3,4 @@ permalink: /about/
 title: "About"
 ---
 
-Tempor velit sint sunt ipsum tempor enim ad qui ullamco. Est dolore anim ad velit duis dolore minim sunt aliquip amet commodo labore. Ut eu pariatur aute ea aute excepteur laborum. Esse ea esse excepteur minim mollit qui cillum excepteur ex dolore magna. Labore deserunt fugiat incididunt incididunt sint ea. Consequat dolore aute laboris quis proident quis non et est consectetur ex eiusmod sit culpa.
-
-Cupidatat ea do et in excepteur in. Ad nostrud ut est esse eu duis ea sunt eiusmod. Aliquip tempor veniam sint elit fugiat. Velit incididunt laboris amet incididunt labore dolore irure velit excepteur commodo deserunt laborum. Consectetur eu fugiat veniam veniam Lorem labore magna eiusmod. Ea occaecat reprehenderit pariatur consectetur minim labore ut aliquip.
+Welcome to my GitHub portfolio, showcasing my journey as an entry-level data analyst passionate about weather, cycling, and gardening data. Explore my resume and diverse data science projects, featuring advanced visualizations created using R and Python. Discover how I leverage data to uncover insights and trends, and see my latest work in graphic design and 3D modeling. Dive into my articles on Medium to learn more about my data analytics journey and how I continuously expand my skills. Connect with me to collaborate on innovative data-driven projects!
