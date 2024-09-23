@@ -11,16 +11,17 @@ header:
 ---
 
 # About the Company
-<div class="info">
-In 2016, Cyclistic launched a successful bike-share offering. Since then, the program has grown to a fleet of 5,824 bicycles that are geo-tracked and locked into a network of 692 stations across Chicago. The bikes can be unlocked from one station and return to any other station in the system anytime. Until now, Cyclistic’s marketing strategy relied on building general awareness and appealing to broad consumer segments. One approach that helped make these things possible was the flexibility of its pricing plans: single-ride passes, full-day passes, and annual memberships.
 
-Customers who purchase single-ride or full-day passes are referred to as casual riders. Customers who purchase annual memberships are Cyclistic members. Cyclistic’s finance analysts have concluded that annual members are much more profitable than casual riders. Although the pricing flexibility helps Cyclistic attract more customers, Moreno believes that maximizing the number of annual members will be key to future growth. Rather than creating a marketing campaign that targets all new customers, Moreno believes there is a very good chance to convert casual riders into members. She notes that casual riders are already aware of the Cyclistic program and have chosen Cyclistic for their mobility needs.
+In 2016, Cyclistic launched a successful bike-share offering. Since then, the program has grown to a fleet of 5,824 bicycles that are geo-tracked and locked into a network of 692 stations across Chicago. The bikes can be unlocked from one station and return to any other station in the system anytime. Until now, Cyclistic’s marketing strategy relied on building general awareness and appealing to broad consumer segments. One approach that helped make these things possible was the flexibility of its pricing plans: single-ride passes, full-day passes, and annual memberships.<br>
+
+Customers who purchase single-ride or full-day passes are referred to as casual riders. Customers who purchase annual memberships are Cyclistic members. Cyclistic’s finance analysts have concluded that annual members are much more profitable than casual riders. Although the pricing flexibility helps Cyclistic attract more customers, Moreno believes that maximizing the number of annual members will be key to future growth. Rather than creating a marketing campaign that targets all new customers, Moreno believes there is a very good chance to convert casual riders into members. She notes that casual riders are already aware of the Cyclistic program and have chosen Cyclistic for their mobility needs.<br>
 
 Moreno has set a clear goal: Design marketing strategies aimed at converting casual riders into annual members. To do that, however, the marketing analyst team needs to better understand how annual members and casual riders differ, why casual riders would buy a membership, and how digital media could affect their marketing tactics. Moreno and her team are interested in analyzing the Cyclistic historical bike trip data to identify trends.
-</div>
+
+
 
 # Define the Problem
-<div class="info">
+
 The main problem for the director of marketing and marketing analytics team is this: Design marketing strategies aimed at converting Cyclistic’s casual riders into annual members. There are three questions that will guide this future marketing program. For the scope of this project, I will answer the following questions:
 
   * How do annual members and casual riders use Cyclistic bikes differently?
@@ -28,15 +29,15 @@ The main problem for the director of marketing and marketing analytics team is t
   * How can Cyclistic use digital media to influence casual riders to become members?
 
 By analyzing the data, we can identify broad patterns within the two groups. Understanding these differences will enable us to create more accurate customer profiles for each group. These insights will assist the marketing analytics team in designing high-quality, targeted marketing strategies to convert casual riders into members. For the Cyclistic executive team, these insights will help maximize the number of annual members and drive future growth for the company.
-</div>
+
 
 # The Task
-<div class="info">
+
 Analyze historical bike trip data to identify trends in how annual members and casual riders use Cyclistic bikes differently and create a data-driven digital media campaign to increase ridership.
-</div>
+
 
 # Environment Setup
-<div class="info">
+
 
   * readr for loading CSV files
   * scales for better graph scales
@@ -45,7 +46,7 @@ Analyze historical bike trip data to identify trends in how annual members and c
   * ggplot2 for visuals
   * fontawesome & paletteer for a pretty notebook
 
-</div>
+
 
 ## Load Data from CSV
 
@@ -151,9 +152,9 @@ is.numeric(all_trips$ride_length) #verify numeric
 ```
 
 ## Remove the Rows of Bad Data
-<div class="info">
+
 data frame include a few hundred entries when bikes were removed for service
-</div>
+
 
 ```r
 all_trips_v2 <- all_trips[!(all_trips$start_station_name == "HQ QR" | all_trips$ride_length<0),]
@@ -174,7 +175,7 @@ summary(all_trips_v2$ride_length)
 ```
 
 ## Compare Casual and Members
-<div class="info">
+
 
 ```r
 aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual, FUN = mean)
@@ -183,19 +184,19 @@ aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual, FUN = max)
 aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual, FUN = min)
 ```
 
-</div>
+
 ## Correct Day of Week Order
-<div class="info">
+
 
 ```r
 all_trips_v2$day_of_week <- ordered(all_trips_v2$day_of_week, levels=c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"))
 aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual + all_trips_v2$day_of_week, FUN =mean)
 ```
 
-</div>
+
 
 # Analyze Ridership Data by Type and Weekday
-<div class="info">
+
 
 ```r
 all_trips_v2 %>%
@@ -205,7 +206,7 @@ all_trips_v2 %>%
         arrange(member_casual, weekday)
 ```
 
-</div>
+
 
 ## Visualize Number of Rides by Rider Type
 
@@ -265,27 +266,26 @@ write.csv(counts, file = 'output_CSV/avg_ride_length.csv')
 ```
 
 # Observations
-<div class="info">
+
 
   * Casual users have significantly longer rides on Sundays compared to members.<br>
   * Casual users have much shorter rides on weekdays compared to members.<br>
   * Casual users typically have longer ride lengths than members.<br>
 
-</div>
+
 
 # Recommendations
-<div class="info">
+
 
   * Create weekend specific memberships plans, the "Weekend Warrior" plan.<br>
   * Highlight benefits for daily commuters, the "Bike 2 Work" plan.<br>
   * Implement a tiered membership to reward longer rides.<br>
   * Create loyalty program with points, redeemed for merch from local partners.<br>
 
-</div>
+
 
 # Find this Project on the Web!
-<div class="info">
+
 [Kaggle Notebook in Python](https://www.kaggle.com/code/gregwhitmore/coursera-capstone-in-python-cyclistic-ridership)<br>
 [Kaggle Notebook in R](https://www.kaggle.com/code/gregwhitmore/coursera-capstone-in-r-cyclistic-ridership-study)<br>
 [Tableau Dashboard](https://public.tableau.com/app/profile/greg.whitmore/viz/Cyclistic-Casual-vs-Member-Ridership/CyclisticDashboard)
-</div>
