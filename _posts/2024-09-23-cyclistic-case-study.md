@@ -9,30 +9,8 @@ tags:
 header:
   image: "/assets/images/data-visualization-of-bicycle-rides.png"
 ---
-```r setup, include=FALSE
-knitr::opts_chunk$set(echo = TRUE)
-options(repr.plot.width=15, repr.plot.height=8)
-#install.packages("readr")
-#install.packages("scales")
-#install.packages("tidyverse")
-#install.packages("dplyr")
-#install.packages("conflicted")
-#install.packages("ggplot2")
-#install.packages("fontawesome")
-#install.packages("paletteer")
-library(readr)
-library(scales)
-library(tidyverse)
-library(dplyr)
-library(conflicted)
-library(ggplot2)
-library(fontawesome)
-library(paletteer)
-conflict_prefer("filter", "dplyr")
-conflict_prefer("lag", "dplyr")
-```
 
-# `r fa("address-card", fill = "#296473")` About the Company
+# About the Company
 <div class="info">
 In 2016, Cyclistic launched a successful bike-share offering. Since then, the program has grown to a fleet of 5,824 bicycles that are geo-tracked and locked into a network of 692 stations across Chicago. The bikes can be unlocked from one station and return to any other station in the system anytime. Until now, Cyclistic’s marketing strategy relied on building general awareness and appealing to broad consumer segments. One approach that helped make these things possible was the flexibility of its pricing plans: single-ride passes, full-day passes, and annual memberships.
 
@@ -40,7 +18,8 @@ Customers who purchase single-ride or full-day passes are referred to as casual 
 
 Moreno has set a clear goal: Design marketing strategies aimed at converting casual riders into annual members. To do that, however, the marketing analyst team needs to better understand how annual members and casual riders differ, why casual riders would buy a membership, and how digital media could affect their marketing tactics. Moreno and her team are interested in analyzing the Cyclistic historical bike trip data to identify trends.
 </div>
-# `r fa("square-xmark", fill = "#296473")` Define the Problem
+
+# Define the Problem
 <div class="info">
 The main problem for the director of marketing and marketing analytics team is this: Design marketing strategies aimed at converting Cyclistic’s casual riders into annual members. There are three questions that will guide this future marketing program. For the scope of this project, I will answer the following questions:
 
@@ -50,11 +29,13 @@ The main problem for the director of marketing and marketing analytics team is t
 
 By analyzing the data, we can identify broad patterns within the two groups. Understanding these differences will enable us to create more accurate customer profiles for each group. These insights will assist the marketing analytics team in designing high-quality, targeted marketing strategies to convert casual riders into members. For the Cyclistic executive team, these insights will help maximize the number of annual members and drive future growth for the company.
 </div>
-# `r fa("thumbtack", fill = "#296473")` The Task
+
+# The Task
 <div class="info">
 Analyze historical bike trip data to identify trends in how annual members and casual riders use Cyclistic bikes differently and create a data-driven digital media campaign to increase ridership.
 </div>
-# `r fa("r-project", fill = "#296473")` Environment Setup
+
+# Environment Setup
 <div class="info">
   * readr for loading CSV files
   * scales for better graph scales
@@ -64,15 +45,14 @@ Analyze historical bike trip data to identify trends in how annual members and c
   * fontawesome & paletteer for a pretty notebook
 </div>
 
-
-## `r fa("file-csv", fill = "#296473")` Load Data from CSV
+## Load Data from CSV
 
 ```{r dataload, echo=TRUE}
 q1_2019 <- read_csv("CSV/Divvy_Trips_2019_Q1.csv")
 q1_2020 <- read_csv("CSV/Divvy_Trips_2020_Q1.csv")
 ```
 
-# `r fa("broom", fill = "#296473")` Clean and Combine
+# Clean and Combine
 
 ## Verify Column Names
 
@@ -114,7 +94,7 @@ q1_2019 <- mutate(q1_2019, ride_id = as.character(ride_id), rideable_type = as.c
 str(q1_2019)
 ```
 
-# `r fa("broom", fill = "#296473")` Create and Clean New Table 'all_trips'
+# Create and Clean New Table 'all_trips'
 
 ## Stack Quarter Dataframes into One
 
@@ -176,7 +156,7 @@ data frame include a few hundred entries when bikes were removed for service
 all_trips_v2 <- all_trips[!(all_trips$start_station_name == "HQ QR" | all_trips$ride_length<0),]
 ```
 
-# `r fa("magnifying-glass-chart", fill = "#296473")` Prepare Descriptive Analysis
+# Prepare Descriptive Analysis
 
 ## Analyze Ride Lengths
 
@@ -263,7 +243,7 @@ all_trips_v2 %>%
   scale_color_paletteer_d("PrettyCols::Bold")
 ```
 
-# `r fa("file-csv", fill = "#296473")` Export Summary File for Further Analysis
+# Export Summary File for Further Analysis
 
 ```{r}
 counts <- aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual +
@@ -271,20 +251,22 @@ counts <- aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual +
 write.csv(counts, file = 'output_CSV/avg_ride_length.csv')
 ```
 
-# `r fa("tower-observation", fill = "#296473")` Observations
+# Observations
 <div class="info">
   * Casual users have significantly longer rides on Sundays compared to members.<br>
   * Casual users have much shorter rides on weekdays compared to members.<br>
   * Casual users typically have longer ride lengths than members.<br>
 </div>
-# `r fa("tower-observation", fill = "#296473")` Recommendations
+
+# Recommendations
 <div class="info">
   * Create weekend specific memberships plans, the "Weekend Warrior" plan.<br>
   * Highlight benefits for daily commuters, the "Bike 2 Work" plan.<br>
   * Implement a tiered membership to reward longer rides.<br>
   * Create loyalty program with points, redeemed for merch from local partners.<br>
 </div>
-# `r fa("link", fill = "#296473")` Find this Project on the Web!
+
+# Find this Project on the Web!
 <div class="info">
 [Kaggle Notebook in Python](https://www.kaggle.com/code/gregwhitmore/coursera-capstone-in-python-cyclistic-ridership)<br>
 [Kaggle Notebook in R](https://www.kaggle.com/code/gregwhitmore/coursera-capstone-in-r-cyclistic-ridership-study)<br>
