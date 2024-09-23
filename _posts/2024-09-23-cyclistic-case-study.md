@@ -37,17 +37,19 @@ Analyze historical bike trip data to identify trends in how annual members and c
 
 # Environment Setup
 <div class="info">
+
   * readr for loading CSV files
   * scales for better graph scales
   * tidyverse and dplyr for knitting file
   * conflicted to manage and set conflict repairs
   * ggplot2 for visuals
   * fontawesome & paletteer for a pretty notebook
+
 </div>
 
 ## Load Data from CSV
 
-```{r dataload, echo=TRUE}
+```r
 q1_2019 <- read_csv("CSV/Divvy_Trips_2019_Q1.csv")
 q1_2020 <- read_csv("CSV/Divvy_Trips_2020_Q1.csv")
 ```
@@ -56,14 +58,14 @@ q1_2020 <- read_csv("CSV/Divvy_Trips_2020_Q1.csv")
 
 ## Verify Column Names
 
-```{r quick-compare}
+```r
 colnames(q1_2019)
 colnames(q1_2020)
 ```
 
 ### Rename Columns of 'q1_2019.csv' for Consistency
 
-```{r column-rename}
+```r
 q1_2019 <- rename(q1_2019
  ,ride_id = trip_id
  ,rideable_type = bikeid
@@ -79,18 +81,18 @@ q1_2019 <- rename(q1_2019
 
 ## Inspect the Dataframes
 
-```{r inspection-quarters}
+```r
 str(q1_2019)
 str(q1_2020)
 ```
 
 ### Convert ride_id and rideable_type columns to CHR
 
-```{r character-conv}
+```r
 q1_2019 <- mutate(q1_2019, ride_id = as.character(ride_id), rideable_type = as.character(rideable_type))
 ```
 
-```{r}
+```r
 str(q1_2019)
 ```
 
@@ -98,20 +100,20 @@ str(q1_2019)
 
 ## Stack Quarter Dataframes into One
 
-```{r stackemup}
+```r
 all_trips <- bind_rows(q1_2019, q1_2020)
 ```
 
 ## Remove lat, long
 
-```{r removal-unnec}
+```r
 all_trips <- all_trips %>%
   select(-c(start_lat, start_lng, end_lat, end_lng, tripduration))
 ```
 
 ## Load 'all_trips' and Preview
 
-```{r quick-compare2}
+```r
 #colnames(all_trips)
 #nrow(all_trips)
 #dim(all_trips)
@@ -122,7 +124,7 @@ summary(all_trips) #only one line needed
 
 ## Clean 'member_casual' Column for Consistency
 
-```{r fix-members}
+```r
 #table(all_trips$member_casual) #view table for memberships
 all_trips <- all_trips %>%
   mutate(member_casual = recode(member_casual ,"Subscriber" = "member" ,"Customer" = "casual"))
@@ -131,7 +133,7 @@ table(all_trips$member_casual) #verify table update contains 2 variables
 
 ## Split Date into Columns for Better Aggregation
 
-```{r splitthedate}
+```r
 all_trips$date <- as.Date(all_trips$started_at) #The default format is yyyy-mm-dd
 all_trips$month <- format(as.Date(all_trips$date), "%m")
 all_trips$day <- format(as.Date(all_trips$date), "%d")
@@ -141,7 +143,7 @@ all_trips$day_of_week <- format(as.Date(all_trips$date), "%A")
 
 ## Add 'ride_length' Calculation and Make Numeric
 
-```{r calc-ridelength}
+```r 
 all_trips$ride_length <- difftime(all_trips$ended_at,all_trips$started_at)
 #is.factor(all_trips$ride_length)
 all_trips$ride_length <- as.numeric(as.character(all_trips$ride_length))
@@ -152,7 +154,8 @@ is.numeric(all_trips$ride_length) #verify numeric
 <div class="info">
 data frame include a few hundred entries when bikes were removed for service
 </div>
-```{r remove-service}
+
+```r
 all_trips_v2 <- all_trips[!(all_trips$start_station_name == "HQ QR" | all_trips$ride_length<0),]
 ```
 
@@ -160,7 +163,7 @@ all_trips_v2 <- all_trips[!(all_trips$start_station_name == "HQ QR" | all_trips$
 
 ## Analyze Ride Lengths
 
-```{r ridelengths}
+```r
 #calculate all ride lengths
 #mean(all_trips_v2$ride_length) #average (total ride length / rides)
 #median(all_trips_v2$ride_length) #midpoint ride length
@@ -172,33 +175,41 @@ summary(all_trips_v2$ride_length)
 
 ## Compare Casual and Members
 <div class="info">
-```{r}
+
+```r
 aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual, FUN = mean)
 aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual, FUN = median)
 aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual, FUN = max)
 aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual, FUN = min)
 ```
+
 </div>
 ## Correct Day of Week Order
 <div class="info">
-```{r}
+
+```r
 all_trips_v2$day_of_week <- ordered(all_trips_v2$day_of_week, levels=c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"))
 aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual + all_trips_v2$day_of_week, FUN =mean)
 ```
+
 </div>
-# `r fa("chart-simple", fill = "#296473")` Analyze Ridership Data by Type and Weekday
+
+# Analyze Ridership Data by Type and Weekday
 <div class="info">
-```{r}
+
+```r
 all_trips_v2 %>%
   mutate(weekday = wday(started_at, label = TRUE)) %>% #creates weekday field using wday
     group_by(member_casual, weekday) %>% #groups by usertype and weekday
       summarise(number_of_rides = n(), average_duration = mean(ride_length)) %>%
         arrange(member_casual, weekday)
 ```
+
 </div>
+
 ## Visualize Number of Rides by Rider Type
 
-```{r}
+```r
 all_trips_v2 %>%
   mutate(weekday = wday(started_at, label = TRUE)) %>%
     group_by(member_casual, weekday) %>%
@@ -214,7 +225,7 @@ all_trips_v2 %>%
 
 ## Visualize Average Duration by Rider Type
 
-```{r}
+```r
 all_trips_v2 %>%
   mutate(weekday = wday(started_at, label = TRUE)) %>%
     group_by(member_casual, weekday) %>%
@@ -227,8 +238,10 @@ all_trips_v2 %>%
           labs(title = "Duration by Rider Type", fill= "Casual vs Member") +
           scale_fill_paletteer_d("PrettyCols::Bold")
 ```
+
 ## Visualise Gender and Age Division of Riders
-```{r}
+
+```r
 all_trips_v2 %>%
   filter(!is.na(gender)) %>%
   filter(birthyear >= 1950L & birthyear <= 2003L & !is.na(birthyear)) %>%
@@ -245,7 +258,7 @@ all_trips_v2 %>%
 
 # Export Summary File for Further Analysis
 
-```{r}
+```r
 counts <- aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual +
                       all_trips_v2$day_of_week, FUN = mean,)
 write.csv(counts, file = 'output_CSV/avg_ride_length.csv')
@@ -253,17 +266,21 @@ write.csv(counts, file = 'output_CSV/avg_ride_length.csv')
 
 # Observations
 <div class="info">
+
   * Casual users have significantly longer rides on Sundays compared to members.<br>
   * Casual users have much shorter rides on weekdays compared to members.<br>
   * Casual users typically have longer ride lengths than members.<br>
+
 </div>
 
 # Recommendations
 <div class="info">
+
   * Create weekend specific memberships plans, the "Weekend Warrior" plan.<br>
   * Highlight benefits for daily commuters, the "Bike 2 Work" plan.<br>
   * Implement a tiered membership to reward longer rides.<br>
   * Create loyalty program with points, redeemed for merch from local partners.<br>
+
 </div>
 
 # Find this Project on the Web!
