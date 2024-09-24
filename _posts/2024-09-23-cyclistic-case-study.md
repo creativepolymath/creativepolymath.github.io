@@ -217,7 +217,7 @@ all_trips_v2 %>%
           labs(title = "Number of Rides by Rider Type", fill= "Casual vs Member") +
           scale_fill_paletteer_d("PrettyCols::Bold")
 ```
-![numrider](assets/images/numridebytype.png)
+![numrider](/assets/images/numridebytype.png)
 
 ## Visualize Average Duration by Rider Type
 
@@ -234,7 +234,7 @@ all_trips_v2 %>%
           labs(title = "Duration by Rider Type", fill= "Casual vs Member") +
           scale_fill_paletteer_d("PrettyCols::Bold")
 ```
-![numrider](assets/images/durridebytype.png)
+![numrider](/assets/images/durridebytype.png)
 
 ## Visualise Gender and Age Division of Riders
 
@@ -252,7 +252,7 @@ all_trips_v2 %>%
   scale_fill_paletteer_d("PrettyCols::Bold") +
   scale_color_paletteer_d("PrettyCols::Bold")
 ```
-![numrider](assets/images/riderdivision.png)
+![numrider](/assets/images/riderdivision.png)
 
 # Export Summary File for Further Analysis
 
