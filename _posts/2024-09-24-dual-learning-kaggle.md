@@ -6,6 +6,9 @@ categories:
 tags:
   - data
   - visualization
+  - python
+  - R
+  - Kaggle
 header:
   image: "/assets/images/data-header3.png"
 ---
