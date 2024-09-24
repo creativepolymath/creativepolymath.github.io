@@ -19,7 +19,6 @@ Customers who purchase single-ride or full-day passes are referred to as casual 
 Moreno has set a clear goal: Design marketing strategies aimed at converting casual riders into annual members. To do that, however, the marketing analyst team needs to better understand how annual members and casual riders differ, why casual riders would buy a membership, and how digital media could affect their marketing tactics. Moreno and her team are interested in analyzing the Cyclistic historical bike trip data to identify trends.
 
 
-
 # Define the Problem
 
 The main problem for the director of marketing and marketing analytics team is this: Design marketing strategies aimed at converting Cyclistic’s casual riders into annual members. There are three questions that will guide this future marketing program. For the scope of this project, I will answer the following questions:
@@ -38,14 +37,12 @@ Analyze historical bike trip data to identify trends in how annual members and c
 
 # Environment Setup
 
-
   * readr for loading CSV files
   * scales for better graph scales
   * tidyverse and dplyr for knitting file
   * conflicted to manage and set conflict repairs
   * ggplot2 for visuals
   * fontawesome & paletteer for a pretty notebook
-
 
 
 ## Load Data from CSV
@@ -55,8 +52,8 @@ q1_2019 <- read_csv("CSV/Divvy_Trips_2019_Q1.csv")
 q1_2020 <- read_csv("CSV/Divvy_Trips_2020_Q1.csv")
 ```
 
-# Clean and Combine
 
+# Clean and Combine
 ## Verify Column Names
 
 ```r
@@ -97,8 +94,8 @@ q1_2019 <- mutate(q1_2019, ride_id = as.character(ride_id), rideable_type = as.c
 str(q1_2019)
 ```
 
-# Create and Clean New Table 'all_trips'
 
+# Create and Clean New Table 'all_trips'
 ## Stack Quarter Dataframes into One
 
 ```r
@@ -133,7 +130,6 @@ table(all_trips$member_casual) #verify table update contains 2 variables
 ```
 
 ## Split Date into Columns for Better Aggregation
-
 ```r
 all_trips$date <- as.Date(all_trips$started_at) #The default format is yyyy-mm-dd
 all_trips$month <- format(as.Date(all_trips$date), "%m")
@@ -143,7 +139,6 @@ all_trips$day_of_week <- format(as.Date(all_trips$date), "%A")
 ```
 
 ## Add 'ride_length' Calculation and Make Numeric
-
 ```r 
 all_trips$ride_length <- difftime(all_trips$ended_at,all_trips$started_at)
 #is.factor(all_trips$ride_length)
@@ -160,8 +155,8 @@ data frame include a few hundred entries when bikes were removed for service
 all_trips_v2 <- all_trips[!(all_trips$start_station_name == "HQ QR" | all_trips$ride_length<0),]
 ```
 
-# Prepare Descriptive Analysis
 
+# Prepare Descriptive Analysis
 ## Analyze Ride Lengths
 
 ```r
@@ -195,7 +190,7 @@ aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual + all_trips_v2$d
 
 
 
-# Analyze Ridership Data by Type and Weekday
+# Analyze Data by Type and Weekday
 
 
 ```r
@@ -205,7 +200,6 @@ all_trips_v2 %>%
       summarise(number_of_rides = n(), average_duration = mean(ride_length)) %>%
         arrange(member_casual, weekday)
 ```
-
 
 
 ## Visualize Number of Rides by Rider Type
@@ -223,6 +217,7 @@ all_trips_v2 %>%
           labs(title = "Number of Rides by Rider Type", fill= "Casual vs Member") +
           scale_fill_paletteer_d("PrettyCols::Bold")
 ```
+![numrider](assets/images/numridebytype.png)
 
 ## Visualize Average Duration by Rider Type
 
@@ -239,6 +234,7 @@ all_trips_v2 %>%
           labs(title = "Duration by Rider Type", fill= "Casual vs Member") +
           scale_fill_paletteer_d("PrettyCols::Bold")
 ```
+![numrider](assets/images/durridebytype.png)
 
 ## Visualise Gender and Age Division of Riders
 
@@ -256,6 +252,7 @@ all_trips_v2 %>%
   scale_fill_paletteer_d("PrettyCols::Bold") +
   scale_color_paletteer_d("PrettyCols::Bold")
 ```
+![numrider](assets/images/riderdivision.png)
 
 # Export Summary File for Further Analysis
 
