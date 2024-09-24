@@ -10,6 +10,8 @@ header:
   image: "/assets/images/data-visualization-of-bicycle-rides.png"
 ---
 
+In today’s data-driven world, the ability to analyze and interpret data is crucial for making informed decisions. As part of the Data Analytics Certificate program, this capstone project focuses on the Cyclistic bike-sharing dataset, which provides a rich source of information on bike usage patterns in a major metropolitan area. By leveraging this dataset, I aim to uncover insights into user behavior, identify trends, and provide actionable recommendations to enhance the bike-sharing experience. This project not only demonstrates the practical application of data analytics skills but also contributes to the growing field of sustainable urban transportation.
+
 # About the Company
 
 In 2016, Cyclistic launched a successful bike-share offering. Since then, the program has grown to a fleet of 5,824 bicycles that are geo-tracked and locked into a network of 692 stations across Chicago. The bikes can be unlocked from one station and return to any other station in the system anytime. Until now, Cyclistic’s marketing strategy relied on building general awareness and appealing to broad consumer segments. One approach that helped make these things possible was the flexibility of its pricing plans: single-ride passes, full-day passes, and annual memberships.<br>
