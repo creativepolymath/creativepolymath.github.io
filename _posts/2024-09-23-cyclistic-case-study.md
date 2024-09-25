@@ -6,6 +6,10 @@ categories:
 tags:
   - data
   - visualization
+  - Tableau
+  - Python
+  - R
+  - Kaggle
 header:
   image: "/assets/images/data-visualization-of-bicycle-rides.png"
 ---

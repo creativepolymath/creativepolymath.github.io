@@ -77,6 +77,9 @@ author:
     - label: "Kaggle"
       icon: "fab fa-fw fa-kaggle"
       url: "https://www.kaggle.com/gregwhitmore"
+      - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      url: "https://www.instagram.com/polymathicprojects/"
 
 footer:
   links:
@@ -89,6 +92,9 @@ footer:
     - label: "Kaggle"
       icon: "fab fa-fw fa-kaggle"
       url: "https://www.kaggle.com/gregwhitmore"
+      - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      url: "https://www.instagram.com/polymathicprojects/"
 
 defaults:
   # _posts
