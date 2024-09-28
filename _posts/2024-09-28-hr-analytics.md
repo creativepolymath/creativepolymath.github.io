@@ -23,3 +23,5 @@ One of the standout features of this dashboard is its ability to break down empl
 ![Tableau Data Visualization Dashboard](/assets/images/Tableau-Viz-cap.PNG)
 
 The dashboard’s interactive elements, such as filters and drill-down capabilities, make it easy to explore the data from different angles and uncover actionable insights. This HR Analytics Dashboard is an essential tool for any organization looking to optimize its human resources strategy through data visualization.
+
+View the final project on [Tableau Public](https://public.tableau.com/app/profile/greg.whitmore/viz/HumanResourcesPortfolioProject/HRAnalyticsDashboard)
