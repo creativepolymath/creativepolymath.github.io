@@ -1,6 +1,6 @@
 ---
 title: "Vibe Coding and LEAN Manufacturing"
-date: 2026-11-16T16:30:30-04:00
+date: 2025-11-16T16:30:30-04:00
 categories:
   - blog
 tags:
