@@ -10,8 +10,6 @@ tags:
   - parametric
 header:
 ---
-# Parametric City Terrain Generator — Blender
-
 ## 🧠 Overview
 This project focuses on automating the repetitive aspects of city creation in Blender by building a parametric terrain generator. Instead of manually placing geometry, the system allows users to generate a fully populated city using adjustable parameters while maintaining an organic feel.
 
