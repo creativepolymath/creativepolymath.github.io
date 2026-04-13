@@ -8,9 +8,7 @@ tags:
   - ai
   - aetherbeam
 header:
-  image: ""
 ---
-# Powering Up the Aetherbeam — Custom 1S2P Li-ion Packs
 
 ## 🧠 Overview
 This bench session focused on building custom 1S2P lithium-ion battery packs using a precision spot welding setup. While originally intended for a separate project, the configuration proved to be an excellent fit for the Aetherbeam LED system—delivering high capacity in a compact form factor.
