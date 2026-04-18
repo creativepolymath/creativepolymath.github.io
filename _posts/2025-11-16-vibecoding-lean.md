@@ -11,7 +11,7 @@ tags:
   - 
 header:
 ---
-## 🧠 Overview
+## Overview
 This project began as a simple RFID test and evolved into a lightweight machine usage tracking system designed for LEAN manufacturing environments. The goal was to create a no-frills tool that captures real machine runtime data without adding complexity to the shop floor.
 
 ## 🎯 Objective
