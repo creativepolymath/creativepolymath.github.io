@@ -19,7 +19,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Welcome to my GitHub portfolio, showcasing my journey as an entry-level data analyst passionate about weather, cycling, and gardening data. Explore my resume and diverse data science projects, featuring advanced visualizations created using R and Python. Discover how I leverage data to uncover insights and trends, and see my latest work in graphic design and 3D modeling. Dive into my articles on Medium to learn more about my data analytics journey and how I continuously expand my skills. Connect with me to collaborate on innovative data-driven projects!
 twitter_username: username
 github_username: creativepolymath
-minimal_mistakes_skin: air
+minimal_mistakes_skin: dark
 search: true
 
 logo: "/assets/images/88x88.png"
