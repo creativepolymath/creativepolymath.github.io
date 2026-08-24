@@ -19,7 +19,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Welcome to my GitHub portfolio.
 twitter_username: username
 github_username: creativepolymath
-minimal_mistakes_skin: air
+minimal_mistakes_skin: dark
 search: true
 
 logo: "/assets/images/88x88.png"
@@ -77,9 +77,6 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/creativepolymath"
-    - label: "Kaggle"
-      icon: "fab fa-fw fa-kaggle"
-      url: "https://www.kaggle.com/gregwhitmore"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       url: "https://www.instagram.com/polymathicprojects/"
@@ -101,9 +98,6 @@ footer:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/creativepolymath"
-    - label: "Kaggle"
-      icon: "fab fa-fw fa-kaggle"
-      url: "https://www.kaggle.com/gregwhitmore"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       url: "https://www.instagram.com/polymathicprojects/"
