@@ -86,6 +86,9 @@ author:
     - label: "Medium"
       icon: "fab fa-fw fa-medium"
       url: "https://medium.com/@gwhitmore"
+    - label: "Makerworld"
+      icon: "fab fa-fw fa-diamond"
+      url: "https://makerworld.com/en/@polymathic3d"
 
 footer:
   links:
@@ -107,6 +110,9 @@ footer:
     - label: "Medium"
       icon: "fab fa-fw fa-medium"
       url: "https://medium.com/@gwhitmore"
+    - label: "Makerworld"
+      icon: "fab fa-fw fa-diamond"
+      url: "https://makerworld.com/en/@polymathic3d"
 
 defaults:
   # _posts
